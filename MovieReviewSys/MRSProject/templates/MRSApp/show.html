@@ -1,0 +1,54 @@
+{% extends "MRSApp/layout.html" %}
+
+{% block title %}
+<title>All Movie Reviews</title>
+{% endblock %}
+
+{% block heading %}
+<h1>All Movie Reviews</h1>
+{% endblock %}
+
+{% block content %}
+<!--<div>-->
+<!--    <form action='/search' class="search-bar" method="get">-->
+<!--        {% csrf_token %}-->
+<!--	    <input type="search" name="query" placeholder="Search">-->
+<!--	    <button class="btn btn-primary" type="submit">-->
+<!--		<span>Search</span>-->
+<!--	    </button>-->
+<!--    </form>-->
+<!--</div>-->
+<table class="table table-success table-striped">
+    <tr>
+        <th>ID</th>
+        <th>MOVIE TITLE</th>
+        <th>DIRECTOR</th>
+        <th>REVIEW CONTENT</th>
+        <th>RATING</th>
+        <th>CREATE AT</th>
+        <th>REVIVER EMAIL</th>
+        <th>STATUS</th>
+        <th>GENRES</th>
+        <th>UPDATE</th>
+        <th>DELETE</th>
+    </tr>
+    {% for i in obj %}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.movietitle}}</td>
+        <td>{{i.director}}</td>
+        <td>{{i.reviewcontent}}</td>
+        <td>{{i.ratings}}</td>
+        <td>{{i.createdAt}}</td>
+        <td>{{i.reviewer_email_id}}</td>
+        <td>{{i.status}}</td>
+        <td>{{i.geners}}</td>
+        <td><a href="/revivew/update/{{i.id}}/"><button>Update</button></a></td>
+        <td><a href="/revivew/delete/{{i.id}}/"><button>Delete</button></a></td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="/revivew/add/">
+    <button>Add Review</button>
+</a>
+{% endblock%}

@@ -1,0 +1,18 @@
+{% extends "MRSApp/layout.html" %}
+
+{% block title %}
+<title>Add Movie Review</title>
+{% endblock %}
+
+{% block heading %}
+<h1>Add Movie Review</h1>
+{% endblock %}
+
+{% block content %}
+<form method="post" >
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit">
+</form>
+<a href="//revivew/show/"><button>Show review</button></a>
+{% endblock %}
